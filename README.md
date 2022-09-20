@@ -10,6 +10,7 @@ android:importantForAccessibility="no"
 
 Если мы хотим указать, что компонент родитель view и все его вложенные view не важны для accessibility, то в разметке такие компоненты помечаем в виде
 android:importantForAccessibility="noHideDescendants"
+
 <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/parentView"
         android:layout_width="match_parent"
@@ -24,7 +25,6 @@ android:importantForAccessibility="noHideDescendants"
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtv3" ... />
-            
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 /----------------------/
@@ -33,6 +33,7 @@ android:importantForAccessibility="noHideDescendants"
  * функция расширение, возвращающая AccessibilityNodeInfoCompat для установки параметров accessibility
  * принимает в себя лямбду
  */
+ 
 fun View.setupAccessibilityInfo(infoAction: (info: AccessibilityNodeInfoCompat) -> Unit) {
     ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
         override fun onInitializeAccessibilityNodeInfo(
